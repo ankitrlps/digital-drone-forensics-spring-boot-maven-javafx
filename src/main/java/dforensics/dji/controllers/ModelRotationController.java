@@ -127,7 +127,7 @@ public class ModelRotationController {
 
 	private Group show3D() {
 		try {
-			URL modelUrl = this.getClass().getResource("/dforensics/dji/tds/hst.3ds");
+			URL modelUrl = this.getClass().getResource("/tds/hst.3ds");
 			model.read(modelUrl);
 		} catch (ImportException e) {
 			System.out.println("Error importing obj model: " + e.getMessage());
