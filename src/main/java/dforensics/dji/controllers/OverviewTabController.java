@@ -10,6 +10,7 @@ import dforensics.dji.entity.DetailsColumn;
 import dforensics.dji.entity.OSDColumn;
 import dforensics.dji.service.*;
 import javafx.fxml.FXML;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -42,9 +43,28 @@ public class OverviewTabController {
 	OSDColumnService osdColumnService;
 
 	@FXML
+	AnchorPane overviewAnchorMain;
+
+	@FXML
 	Text distanceTravelled, flightDate, flightLength, maxAlt, droneType, crtlBy, batteryPercent, batterySerial,
 			batteryType, volConsumption, batteryProductDate, flightLoc, aircraftName, aircraftSerialNo, photosTaken,
 			videoTime, maxSatellites, homeLoc, djiAppLoc, djiAppOsVersion, rcSerialNo, cameraSerialNo, maxSpeed;
+
+	public void setWidthDimensions(double width){
+		this.overviewAnchorMain.getScene().widthProperty().addListener((observable, oldValue, newValue) -> {
+			if(newValue != null){
+				this.overviewAnchorMain.setPrefWidth(width / 1.1d);
+			}
+		});
+	}
+
+	public void setHeightDimensions(double height){
+		this.overviewAnchorMain.getScene().heightProperty().addListener((observable, oldValue, newValue) -> {
+			if(newValue != null){
+				this.overviewAnchorMain.setPrefHeight(height / 1.1d);
+			}
+		});
+	}
 
 	protected void displayOverview() {
 

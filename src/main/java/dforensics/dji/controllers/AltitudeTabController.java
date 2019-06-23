@@ -12,6 +12,7 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.layout.AnchorPane;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,29 +24,34 @@ public class AltitudeTabController {
 	@Autowired
 	private OSDColumnService osdColumnService;
 	
-	@FXML LineChart<String, Number> lineChart;
+	@FXML LineChart<String, Number> altitudeLineChart;
 	@FXML CategoryAxis xAxis;
 	@FXML NumberAxis yAxis;
+	@FXML
+	AnchorPane altitudeAnchorMain;
 
-/*	public void dislayDroneAltitude(List<DjiParameters> list) {
-		log.info("Here are the results: " + customColumnRepo.findAll());
-		XYChart.Series<String, Number> series = new XYChart.Series<>();
-		series.setName("Altitude");
+	public void setWidthDimensions(double width){
+		this.altitudeAnchorMain.getScene().widthProperty().addListener((observable, oldValue, newValue) -> {
+			if(newValue != null){
+				this.altitudeAnchorMain.setPrefWidth(width / 1.1d);
+				this.altitudeLineChart.setPrefWidth(width / 1.1d);
+			}
+		});
+	}
 
-		for (DjiParameters values : list) {
-			String timeDate = values.getUpdateTime();
-			String[] split = timeDate.split(" ");
-			int altitude = Integer.parseInt(values.getOsdAltitude());
-
-			series.getData().add(new XYChart.Data<>(split[1].trim(), altitude));
-		}
-		lineChart.getData().add(series);
-	}*/
+	public void setHeightDimensions(double height){
+		this.altitudeAnchorMain.getScene().heightProperty().addListener((observable, oldValue, newValue) -> {
+			if(newValue != null){
+				this.altitudeAnchorMain.setPrefHeight(height / 1.1d);
+				this.altitudeLineChart.setLayoutY(height / 8.22d);
+				this.altitudeLineChart.setPrefHeight(height / 1.4d);
+			}
+		});
+	}
 
 	public void displayAltitude(){
 		XYChart.Series<String, Number> series = new XYChart.Series<>();
-		series.setName("Altitude");
-		log.info("entered");
+		series.setName("Altitude Over Time Chart");
 
 		osdColumnService.getAltitudeWithTime().stream().forEach(osdColumn -> {
 			String timeDate = osdColumn.getTimestamp();
@@ -55,6 +61,6 @@ public class AltitudeTabController {
 			series.getData().add(new XYChart.Data<>(split[1], altitude));
 		});
 
-		lineChart.getData().add(series);
+		altitudeLineChart.getData().add(series);
 	}
 }

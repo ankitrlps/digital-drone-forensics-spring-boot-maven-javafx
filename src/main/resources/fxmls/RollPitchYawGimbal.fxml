@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="633.0" prefWidth="1304.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="dforensics.dji.controllers.RollPitchYawGimbalController">
+<AnchorPane fx:id="rpyAnchorMain" prefHeight="633.0" prefWidth="1304.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="dforensics.dji.controllers.RollPitchYawGimbalController">
    <children>
       <LineChart fx:id="lineChart" layoutX="14.0" layoutY="102.0" prefHeight="485.0" prefWidth="1265.0" title="Gimbal Roll Pitch Yaw Over Time">
         <xAxis>

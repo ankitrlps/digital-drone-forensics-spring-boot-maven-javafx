@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="648.0" prefWidth="1318.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="dforensics.dji.controllers.AltitudeTabController">
+<AnchorPane fx:id="altitudeAnchorMain" prefHeight="648.0" prefWidth="1318.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="dforensics.dji.controllers.AltitudeTabController">
    <children>
-      <LineChart fx:id="lineChart" layoutX="26.0" layoutY="57.0" prefHeight="556.0" prefWidth="1267.0" title="Altitude Over Time">
+      <LineChart fx:id="altitudeLineChart" layoutX="14.0" layoutY="40.0" prefHeight="556.0" prefWidth="1267.0" title="Altitude Over Time Analysis">
         <xAxis>
           <CategoryAxis label="Time (hh:mm:ss:ms)" side="BOTTOM" fx:id="xAxis" />
         </xAxis>

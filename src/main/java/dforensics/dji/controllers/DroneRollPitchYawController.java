@@ -9,6 +9,7 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.layout.AnchorPane;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -21,8 +22,29 @@ public class DroneRollPitchYawController {
 	@FXML LineChart<String, Number> lineChart;
 	@FXML CategoryAxis xAxis;
 	@FXML NumberAxis yAxis;
-	
-@SuppressWarnings("unchecked")
+	@FXML
+	AnchorPane pryAnchorMain;
+
+	public void setWidthDimensions(double width){
+		this.pryAnchorMain.getScene().widthProperty().addListener((observable, oldValue, newValue) -> {
+			if(newValue != null){
+				this.pryAnchorMain.setPrefWidth(width / 1.1d);
+				this.lineChart.setPrefWidth(width / 1.1d);
+			}
+		});
+	}
+
+	public void setHeightDimensions(double height){
+		this.pryAnchorMain.getScene().heightProperty().addListener((observable, oldValue, newValue) -> {
+			if(newValue != null){
+				this.pryAnchorMain.setPrefHeight(height / 1.1d);
+				this.lineChart.setLayoutY(height / 8.22d);
+				this.lineChart.setPrefHeight(height / 1.4d);
+			}
+		});
+	}
+
+	@SuppressWarnings("unchecked")
 public void dislayDroneRPY() {
 		
 		XYChart.Series<String, Number> series1 = new XYChart.Series<>();
