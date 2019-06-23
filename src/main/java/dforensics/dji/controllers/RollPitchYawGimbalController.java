@@ -9,6 +9,7 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.layout.AnchorPane;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -21,6 +22,27 @@ public class RollPitchYawGimbalController {
 	@FXML LineChart<String, Number> lineChart;
 	@FXML CategoryAxis xAxis;
 	@FXML NumberAxis yAxis;
+	@FXML
+	AnchorPane rpyAnchorMain;
+
+	public void setWidthDimensions(double width){
+		this.rpyAnchorMain.getScene().widthProperty().addListener((observable, oldValue, newValue) -> {
+			if(newValue != null){
+				this.rpyAnchorMain.setPrefWidth(width / 1.1d);
+				this.lineChart.setPrefWidth(width / 1.1d);
+			}
+		});
+	}
+
+	public void setHeightDimensions(double height){
+		this.rpyAnchorMain.getScene().heightProperty().addListener((observable, oldValue, newValue) -> {
+			if(newValue != null){
+				this.rpyAnchorMain.setPrefHeight(height / 1.1d);
+				this.lineChart.setLayoutY(height / 8.22d);
+				this.lineChart.setPrefHeight(height / 1.4d);
+			}
+		});
+	}
 
 	@SuppressWarnings("unchecked")
 	public void dislayGimbalRPY() {

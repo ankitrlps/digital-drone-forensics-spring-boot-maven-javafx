@@ -5,9 +5,9 @@
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="620.0" prefWidth="1244.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dforensics.dji.controllers.BatteryTabController">
+<AnchorPane fx:id="batteryAnchorMain" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dforensics.dji.controllers.BatteryTabController">
    <children>
-      <LineChart fx:id="batteryLineChart" layoutX="14.0" layoutY="90.0" prefHeight="495.0" prefWidth="1207.0" title="Battery Over Time">
+      <LineChart fx:id="batteryLineChart" layoutX="14.0" layoutY="40.0" prefHeight="495.0" prefWidth="1207.0" title="Battery Usage Analysis">
         <xAxis>
           <CategoryAxis label="Time Stamp (hh:mm:ss:ms)" side="BOTTOM" fx:id="xAxis" />
         </xAxis>

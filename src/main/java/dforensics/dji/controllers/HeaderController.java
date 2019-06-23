@@ -26,6 +26,9 @@ import dforensics.dji.repository.CustomColumnRepo;
 import dforensics.dji.service.*;
 import dforensics.dji.service.impl.KmlCreation;
 import javafx.scene.control.Button;
+import javafx.scene.control.SplitPane;
+import javafx.scene.layout.AnchorPane;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -78,6 +81,11 @@ public class HeaderController {
 	@FXML private Text fileReadNotice;
 	@FXML TextField kmlFilePath;
 	@FXML Button uploadFileButton;
+	@FXML AnchorPane headerAnchorPane;
+	@FXML AnchorPane headerAnchorPaneMain;
+	@FXML SplitPane splitPane;
+	@FXML Button convertToKMLButton;
+	@FXML Button goButton;
 
 	String filePath;
 	String fileName;
@@ -93,6 +101,24 @@ public class HeaderController {
 		if(uploadFileButton.isPressed()) this.djiMainController = mainController;
 	}
 
+	public double getPrefHeight(){
+		return headerAnchorPaneMain.getPrefHeight();
+	}
+
+	public void setWidthDimensions(double width){
+		this.headerAnchorPaneMain.getScene().widthProperty().addListener((observable, oldValue, newValue) -> {
+			if(newValue != null) {
+				this.headerAnchorPaneMain.setPrefWidth(width);
+				this.headerAnchorPane.setPrefWidth(width);
+				this.splitPane.setPrefWidth(width);
+				this.kmlFilePath.setPrefWidth(width/2.5d);
+				this.convertToKMLButton.setLayoutX(width / 1.3d);
+				this.goButton.setLayoutX(width / 1.3d);
+				System.out.println("Layout X: " + convertToKMLButton.getLayoutX());
+			}
+		});
+		System.out.println("Pref width: " + headerAnchorPaneMain.getPrefWidth());
+	}
 	@FXML
 	private void uploadFile(ActionEvent event) {
 

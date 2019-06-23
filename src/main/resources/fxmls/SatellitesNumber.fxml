@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="643.0" prefWidth="1388.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="dforensics.dji.controllers.SatellitesNumberController">
+<AnchorPane fx:id="satAnchorMain" prefHeight="643.0" prefWidth="1388.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="dforensics.dji.controllers.SatellitesNumberController">
    <children>
       <LineChart fx:id="lineChart" layoutX="14.0" layoutY="60.0" prefHeight="523.0" prefWidth="1319.0" title="Satellites Over Time">
         <xAxis>

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane prefHeight="899.0" prefWidth="1625.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dforensics.dji.controllers.DJIMainController">
+<BorderPane fx:id="borderPaneMain" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dforensics.dji.controllers.DJIMainController">
 	<top>
 		<fx:include fx:id="header" source="Header.fxml" />
 	</top>
@@ -50,7 +50,7 @@
 				</Tab>
 				<Tab text="3D Model Rotations">
 					<content>
-						<fx:include fx:id="3dRotation" source="3DRotation.fxml" />
+						<fx:include fx:id="tdRotation" source="3DRotation.fxml" />
 					</content>
 				</Tab>
 				<Tab fx:id="gPRYTab" text="Gimbal Roll Pitch Yaw">
@@ -72,10 +72,10 @@
 		</TabPane>
 	</center>
 	<bottom>
-		<AnchorPane prefHeight="49.0" prefWidth="1178.0" BorderPane.alignment="CENTER" />
+		<AnchorPane fx:id="bottomAnchorMain" prefHeight="20.0" prefWidth="1178.0" BorderPane.alignment="CENTER" />
 	</bottom>
    <left>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="leftAnchor" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <ImageView fx:id="view" fitHeight="150.0" fitWidth="193.0" layoutX="4.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
          </children>

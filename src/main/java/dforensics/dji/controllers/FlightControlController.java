@@ -10,6 +10,7 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -28,6 +29,9 @@ public class FlightControlController {
 	@FXML
 	Label helpText;
 
+	@FXML
+	AnchorPane flightAnchorMain;
+
 	/*
 	 * final static String takeOff = "AutoTakeoff"; final static String onGpsAlt
 	 * = "GPS_Atti"; final static String landing = "AutoLanding"; final static
@@ -35,13 +39,32 @@ public class FlightControlController {
 	 * landingNum = 10;
 	 */
 
+	public void setWidthDimensions(double width){
+		this.flightAnchorMain.getScene().widthProperty().addListener((observable, oldValue, newValue) -> {
+			if(newValue != null){
+				this.flightAnchorMain.setPrefWidth(width / 1.1d);
+				this.fControlLineChart.setPrefWidth(width / 1.1d);
+			}
+		});
+	}
+
+	public void setHeightDimensions(double height){
+		this.flightAnchorMain.getScene().heightProperty().addListener((observable, oldValue, newValue) -> {
+			if(newValue != null){
+				this.flightAnchorMain.setPrefHeight(height / 1.1d);
+				this.fControlLineChart.setLayoutY(height / 8.22d);
+				this.fControlLineChart.setPrefHeight(height / 1.4d);
+			}
+		});
+	}
+
 	@SuppressWarnings("unchecked")
 	public void showFlightControl() {
 		
 		helpText.setText("'10' - Assisted Take Off \n'6' - Flying (GPS) \n'11' - Auto Take Off \n'12' - Auto Landing");
 
 		XYChart.Series<String, Number> series1 = new XYChart.Series<>();
-		series1.setName("Flight Control");
+		series1.setName("Flight Control Over Time Chart");
 
 		System.out.println("Size: " + osdColumnService.getSatellitesWithTime().size());
 
