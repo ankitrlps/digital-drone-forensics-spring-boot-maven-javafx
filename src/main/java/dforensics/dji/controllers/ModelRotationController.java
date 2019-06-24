@@ -1,20 +1,13 @@
 package dforensics.dji.controllers;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import com.interactivemesh.jfx.importer.ImportException;
 import com.interactivemesh.jfx.importer.tds.TdsModelImporter;
 import com.opencsv.CSVReader;
 
 import dforensics.dji.domain.TimeAndThreeColumns;
-import dforensics.dji.entity.DjiParameters;
 import dforensics.dji.service.OSDColumnService;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
@@ -30,12 +23,10 @@ import javafx.scene.PerspectiveCamera;
 import javafx.scene.PointLight;
 import javafx.scene.SceneAntialiasing;
 import javafx.scene.SubScene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.SplitPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.paint.Color;
 import javafx.scene.transform.Rotate;
@@ -79,7 +70,6 @@ public class ModelRotationController {
 				this.tDAnchorPaneMain.setPrefWidth(width / 1.04d);
 				this.splitPane.setPrefWidth(width / 1.05d);
 				this.buttonAnchorPane.setPrefWidth(this.splitPane.getPrefWidth());
-//				this.buttonBar.setLayoutX(this.splitPane.getPrefWidth() / 5.0d);
 				this.buttonBar.setPrefWidth(this.splitPane.getPrefWidth());
 				this.tDAnchorPaneOuter.setPrefWidth(width / 1.1d);
 				this.tDAnchorPaneInner.setPrefWidth(width / 1.2d);

@@ -34,6 +34,7 @@ public class DJIMainController {
 	@FXML private RollPitchYawGimbalController rpyGimbalController;
 	@FXML private SatellitesNumberController satelliteNumberController;
 	@FXML private ModelRotationController tdRotationController;
+	@FXML private MetaDataController metaDataController;
 
 	@FXML private ImageView view;
 
@@ -99,6 +100,7 @@ public class DJIMainController {
 						tdRotationController.setWidthDimensions(newValue.doubleValue() - getLeftAreaWidth());
 						satelliteNumberController.setWidthDimensions(newValue.doubleValue() - getLeftAreaWidth());
 						speedTabController.setWidthDimensions(newValue.doubleValue() - getLeftAreaWidth());
+						metaDataController.setWidthDimensions(newValue.doubleValue() - getLeftAreaWidth());
 					}
 				});
 
@@ -116,6 +118,7 @@ public class DJIMainController {
 						tdRotationController.setHeightDimensions(newValue.doubleValue() - (headerController.getPrefHeight() + bottomAnchorMain.getPrefHeight()));
 						satelliteNumberController.setHeightDimensions(newValue.doubleValue() - (headerController.getPrefHeight() + bottomAnchorMain.getPrefHeight()));
 						speedTabController.setHeightDimensions(newValue.doubleValue() - (headerController.getPrefHeight() + bottomAnchorMain.getPrefHeight()));
+						metaDataController.setHeightDimensions(newValue.doubleValue() - (headerController.getPrefHeight() + bottomAnchorMain.getPrefHeight()));
 					}
 				});
 			}

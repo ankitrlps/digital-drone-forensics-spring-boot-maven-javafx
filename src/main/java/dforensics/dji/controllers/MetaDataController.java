@@ -13,8 +13,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import org.springframework.stereotype.Controller;
@@ -24,8 +26,41 @@ public class MetaDataController {
 
 	@FXML
 	TextField textField;
+
 	@FXML
 	TextArea textID;
+
+	@FXML
+	AnchorPane metadataAnchorMain, upperAnchor, lowerPane;
+
+	@FXML
+	SplitPane splitPane;
+
+	public void setWidthDimensions(double width){
+		this.metadataAnchorMain.getScene().widthProperty().addListener((observable, oldValue, newValue) -> {
+			if(newValue != null){
+				this.metadataAnchorMain.setPrefWidth(width / 1.1d);
+				this.splitPane.setPrefWidth(width / 1.1d);
+				this.upperAnchor.setPrefWidth(width / 1.1d);
+				this.lowerPane.setPrefWidth(width / 1.1d);
+				this.textID.setPrefWidth(width / 1.2d);
+				//this.textField.setPrefWidth(width / 1.1d);
+			}
+		});
+	}
+
+	public void setHeightDimensions(double height){
+		this.metadataAnchorMain.getScene().heightProperty().addListener((observable, oldValue, newValue) -> {
+			if(newValue != null){
+				this.metadataAnchorMain.setPrefHeight(height / 1.1d);
+	 			this.splitPane.setPrefHeight(height / 1.2d);
+				//this.textField.setLayoutY(height / 8.22d);
+				this.lowerPane.setPrefHeight((height - this.upperAnchor.getPrefHeight()) / 1.3d);
+				this.textID.setPrefHeight((height - this.upperAnchor.getPrefHeight()) / 1.4d);
+				//this.textField.setPrefHeight((height - this.upperAnchor.getPrefHeight()) / 1.5d);
+			}
+		});
+	}
 
 	@FXML
 	public void showExifData(ActionEvent event) {
