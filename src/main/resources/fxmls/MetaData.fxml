@@ -8,22 +8,22 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="626.0" prefWidth="1322.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dforensics.dji.controllers.MetaDataController">
+<AnchorPane fx:id="metadataAnchorMain" prefHeight="626.0" prefWidth="1322.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dforensics.dji.controllers.MetaDataController">
    <children>
-      <SplitPane dividerPositions="0.14102564102564102" orientation="VERTICAL" prefHeight="626.0" prefWidth="1322.0">
+      <SplitPane fx:id="splitPane" dividerPositions="0.09775641025641026" orientation="VERTICAL" prefHeight="626.0" prefWidth="1322.0">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+          <AnchorPane fx:id="upperAnchor" minHeight="0.0" minWidth="0.0" prefHeight="37.0" prefWidth="1320.0">
                <children>
-                  <Button layoutX="993.0" layoutY="27.0" mnemonicParsing="false" onAction="#showExifData" text="Browse File Location" />
-                  <TextField fx:id="textField" layoutX="615.0" layoutY="27.0" prefHeight="31.0" prefWidth="354.0" />
-                  <Text layoutX="174.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Get Meta-Data of A Picture/Video" textAlignment="CENTER" wrappingWidth="464.6171875">
+                  <Button layoutX="658.0" layoutY="16.0" mnemonicParsing="false" onAction="#showExifData" text="Browse File Location" />
+                  <TextField fx:id="textField" layoutX="372.0" layoutY="16.0" prefHeight="21.0" prefWidth="277.0" promptText="Paste the local file location" />
+                  <Text layoutX="114.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Get Meta-Data of A Picture/Video" textAlignment="CENTER" wrappingWidth="258.2838439941406">
                      <font>
-                        <Font name="System Bold" size="24.0" />
+                        <Font name="System Bold" size="16.0" />
                      </font>
                   </Text>
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="526.0" prefWidth="1320.0">
+          <AnchorPane fx:id="lowerPane" minHeight="0.0" minWidth="0.0" prefHeight="526.0" prefWidth="1320.0">
                <children>
                   <TextArea fx:id="textID" layoutX="20.0" layoutY="14.0" prefHeight="464.0" prefWidth="1277.0" />
                </children></AnchorPane>
